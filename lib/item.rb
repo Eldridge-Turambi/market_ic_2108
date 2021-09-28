@@ -1,23 +1,9 @@
 class Item
   attr_reader :name,
-              :price,
-              :stock
+              :price
 
-
-  def initialize(info)
-    @name = info[:name]
-    @price = info[:price].gsub(/[$]/, '').to_f.round(2)
-    @stock = 0
-
+  def initialize(item_info)
+    @name = item_info[:name]
+    @price = item_info[:price].gsub('$', '').to_f #delete would work too instead of gsub
   end
-
-  def check_stock(item)
-    item.stock
-  end
-
-  def stock(item, quantity)
-    item.stock += quantity
-  end
-
-
 end
